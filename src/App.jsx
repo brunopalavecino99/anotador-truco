@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
+import SvgComponent from "./Icons/Matches";
 
 const App = () => {
   const [pointsT1, setPointsT1] = useState(0);
@@ -34,22 +35,31 @@ const App = () => {
     setPointsT2(0);
   };
 
+
+
   return (
     <div className="background">
       <div className="content">
         <h1>Puntos</h1>
 
         <div className="points">
-          <div>
-            pointsT1 = {pointsT1}
-            <button onClick={handleAddT1}>+1</button>
-            <button onClick={handleSubtractT1}>-1</button>
+          <div className="masmenos">
+            <button className="Button" onClick={handleAddT1}>+1</button>
+            <button className="Button" onClick={handleSubtractT1}>-1</button>
           </div>
-
-          <div>
-            pointsT2 = {pointsT2}
-            <button onClick={handleAddT2}>+1</button>
-            <button onClick={handleSubtractT2}>-1</button>
+          <div className="BoardT1">
+            {Array.from({ length: pointsT1 }, (_, index) => (
+              <SvgComponent key={index} />
+            ))}
+          </div>
+          <div className="BoardT2">
+            {Array.from({ length: pointsT2 }, (_, index) => (
+              <SvgComponent key={index} />
+            ))}
+          </div>
+          <div className="masmenos">
+            <button className="Button" onClick={handleAddT2}>+1</button>
+            <button className="Button" onClick={handleSubtractT2}>-1</button>
           </div>
         </div>
         <button onClick={handleReset}>Resetear</button>
