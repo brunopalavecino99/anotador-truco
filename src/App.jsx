@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./styles.css";
-import SvgComponent from "./Icons/Matches";
+import MatchesIcon from "./Icons/Matches";
 
 const App = () => {
   const [pointsT1, setPointsT1] = useState(0);
@@ -35,7 +35,39 @@ const App = () => {
     setPointsT2(0);
   };
 
+  const groupPoints = (points) => {
+    const casitasCompletas = Math.floor(points / 5);
+    const resto = points % 5;
 
+    const casas = Array.from({ length: casitasCompletas });
+    const restosPalitos = Array.from({ length: resto });
+
+    return (
+      <div>
+        {casas.map((_, index) => {
+          const palitos = Array.from({ length: 5 });
+          return (
+            <div key={index} className="casita">
+              {palitos.map((_, index) => (
+                <div className="palitos" key={index}>
+                  <MatchesIcon width={8} />
+                </div>
+              ))}
+            </div>
+          );
+        })}
+        {casitasCompletas < 6 && (
+          <div className="casita">
+            {restosPalitos.map((_, index) => (
+              <div className="palitos" key={index}>
+                <MatchesIcon width={8} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="background">
@@ -43,26 +75,41 @@ const App = () => {
         <h1>Puntos</h1>
 
         <div className="points">
-          <div className="masmenos">
-            <button className="Button" onClick={handleAddT1}>+1</button>
-            <button className="Button" onClick={handleSubtractT1}>-1</button>
+          <div className="boards">
+            <div className="casitas">
+              {groupPoints(pointsT1)}
+              <div className="horizontal left" />
+              <div className="vertical left" />
+            </div>
+
+            <div className="buttons t1">
+              <button className="rounded-button" onClick={handleAddT1}>
+                +1
+              </button>
+              <button className="rounded-button" onClick={handleSubtractT1}>
+                -1
+              </button>
+            </div>
           </div>
-          <div className="BoardT1">
-            {Array.from({ length: pointsT1 }, (_, index) => (
-              <SvgComponent key={index} />
-            ))}
-          </div>
-          <div className="BoardT2">
-            {Array.from({ length: pointsT2 }, (_, index) => (
-              <SvgComponent key={index} />
-            ))}
-          </div>
-          <div className="masmenos">
-            <button className="Button" onClick={handleAddT2}>+1</button>
-            <button className="Button" onClick={handleSubtractT2}>-1</button>
+          <div className="boards">
+            <div className="casitas">
+              {groupPoints(pointsT2)}
+              <div className="horizontal right" />
+            </div>
+
+            <div className="buttons t2">
+              <button className="rounded-button" onClick={handleAddT2}>
+                +1
+              </button>
+              <button className="rounded-button" onClick={handleSubtractT2}>
+                -1
+              </button>
+            </div>
           </div>
         </div>
-        <button onClick={handleReset}>Resetear</button>
+        <button className="rounded-button" onClick={handleReset}>
+          Resetear
+        </button>
       </div>
     </div>
   );
