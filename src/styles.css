@@ -4,9 +4,12 @@ body {
   padding: 0;
 }
 
-h1 {
-  margin: 10px 0;
+h2 {
+  margin: 15px 0;
   color: white;
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .background {
@@ -28,6 +31,17 @@ h1 {
   width: 100%;
   max-width: 600px;
   padding-bottom: 12px;
+  position: relative;
+
+
+}
+
+.banner {
+  display: flex;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  position: absolute;
 }
 
 .points {
@@ -53,6 +67,10 @@ h1 {
 }
 
 .rounded-button {
+  font-family: "Jersey 25", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
   border-radius: 20px;
   border: none;
   color: white;
@@ -76,10 +94,11 @@ h1 {
 .horizontal {
   position: absolute;
   background-color: grey;
-  top: 48%;
+  top: 50vh;
   width: 80%;
   height: 1px;
 }
+
 
 .vertical {
   position: absolute;

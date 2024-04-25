@@ -72,13 +72,12 @@ const App = () => {
   return (
     <div className="background">
       <div className="content">
-        <h1>Puntos</h1>
-
+        <div className="banner"></div>
         <div className="points">
           <div className="boards">
             <div className="casitas">
+              <h2>Nosotros</h2>
               {groupPoints(pointsT1)}
-              <div className="horizontal left" />
               <div className="vertical left" />
             </div>
 
@@ -93,10 +92,9 @@ const App = () => {
           </div>
           <div className="boards">
             <div className="casitas">
+              <h2>Ellos</h2>
               {groupPoints(pointsT2)}
-              <div className="horizontal right" />
             </div>
-
             <div className="buttons t2">
               <button className="rounded-button" onClick={handleAddT2}>
                 +1
