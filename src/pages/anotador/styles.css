@@ -1,21 +1,7 @@
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-  margin: 15px 0;
-  color: white;
-  font-family: "Jersey 25", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 .background {
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100svh;
   background: #485563;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #29323c, #485563);
@@ -32,8 +18,6 @@ h2 {
   max-width: 600px;
   padding-bottom: 12px;
   position: relative;
-
-
 }
 
 .banner {
@@ -67,15 +51,14 @@ h2 {
 }
 
 .rounded-button {
-  font-family: "Jersey 25", sans-serif;
+  font-family: "Bangers", system-ui;
   font-style: normal;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 20px;
   border: none;
   color: white;
-  font-size: 18px;
-  font-weight: bold;
   background-color: #20dbaa;
   padding-right: 25px;
   padding-left: 25px;
@@ -83,6 +66,7 @@ h2 {
 }
 
 .casitas {
+  margin-top: 12px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -98,7 +82,6 @@ h2 {
   width: 80%;
   height: 1px;
 }
-
 
 .vertical {
   position: absolute;
@@ -117,8 +100,8 @@ h2 {
 }
 
 .casita {
-  width: 90px;
-  height: 90px;
+  width: 65px;
+  height: 67px;
   position: relative;
   display: flex;
   margin-bottom: 20px;

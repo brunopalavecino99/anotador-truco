@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./styles.css";
-import MatchesIcon from "./Icons/Matches";
+import MatchesIcon from "../../Icons/Matches";
 
-const App = () => {
+const Anotador = () => {
   const [pointsT1, setPointsT1] = useState(0);
   const [pointsT2, setPointsT2] = useState(0);
 
@@ -50,7 +50,7 @@ const App = () => {
             <div key={index} className="casita">
               {palitos.map((_, index) => (
                 <div className="palitos" key={index}>
-                  <MatchesIcon width={8} />
+                  <MatchesIcon width={6} />
                 </div>
               ))}
             </div>
@@ -60,7 +60,7 @@ const App = () => {
           <div className="casita">
             {restosPalitos.map((_, index) => (
               <div className="palitos" key={index}>
-                <MatchesIcon width={8} />
+                <MatchesIcon width={6} />
               </div>
             ))}
           </div>
@@ -75,32 +75,30 @@ const App = () => {
         <div className="banner"></div>
         <div className="points">
           <div className="boards">
+            <h2>Nosotros</h2>
             <div className="casitas">
-              <h2>Nosotros</h2>
               {groupPoints(pointsT1)}
               <div className="vertical left" />
             </div>
 
             <div className="buttons t1">
               <button className="rounded-button" onClick={handleAddT1}>
-                +1
+                + 1
               </button>
               <button className="rounded-button" onClick={handleSubtractT1}>
-                -1
+                - 1
               </button>
             </div>
           </div>
           <div className="boards">
-            <div className="casitas">
-              <h2>Ellos</h2>
-              {groupPoints(pointsT2)}
-            </div>
+            <h2>Ellos</h2>
+            <div className="casitas">{groupPoints(pointsT2)}</div>
             <div className="buttons t2">
               <button className="rounded-button" onClick={handleAddT2}>
-                +1
+                + 1
               </button>
               <button className="rounded-button" onClick={handleSubtractT2}>
-                -1
+                - 1
               </button>
             </div>
           </div>
@@ -113,4 +111,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Anotador;

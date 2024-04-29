@@ -1,0 +1,47 @@
+.background-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  background: #485563;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #29323c, #485563);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #29323c, #485563);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.content-home {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 80px 100px;
+}
+
+.home-title {
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 56px;
+  text-align: center;
+}
+
+.by {
+  text-align: right;
+  margin-top: 0;
+  margin-bottom: 100px;
+}
+
+.button-home {
+  font-size: 28px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 16px 25px;
+  background-color: #20dbaa;
+  border-radius: 15px;
+}
