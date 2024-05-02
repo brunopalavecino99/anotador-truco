@@ -3,36 +3,48 @@ import "./styles.css";
 import MatchesIcon from "../../Icons/Matches";
 
 const Anotador = () => {
-  const [pointsT1, setPointsT1] = useState(0);
-  const [pointsT2, setPointsT2] = useState(0);
+  const [pointsT1, setPointsT1] = useState(
+    parseInt(localStorage.getItem("pointsT1")) || 0);
+  const [pointsT2, setPointsT2] = useState(
+    parseInt(localStorage.getItem("pointsT2")) || 0);
 
   const handleAddT1 = () => {
     if (pointsT1 < 30) {
-      setPointsT1(pointsT1 + 1);
+      const newPointsT1 = pointsT1 + 1;
+      setPointsT1(newPointsT1);
+      localStorage.setItem("pointsT1", newPointsT1.toString());
     }
   };
 
   const handleSubtractT1 = () => {
     if (pointsT1 > 0) {
-      setPointsT1(pointsT1 - 1);
+      const newPointsT1 = pointsT1 - 1;
+      setPointsT1(newPointsT1);
+      localStorage.setItem("pointsT1", newPointsT1.toString());
     }
   };
 
   const handleAddT2 = () => {
     if (pointsT2 < 30) {
-      setPointsT2(pointsT2 + 1);
+      const newPointsT2 = pointsT2 + 1;
+      setPointsT2(newPointsT2);
+      localStorage.setItem("pointsT2", newPointsT2.toString());
     }
   };
 
   const handleSubtractT2 = () => {
     if (pointsT2 > 0) {
-      setPointsT2(pointsT2 - 1);
+      const newPointsT2 = pointsT2 - 1;
+      setPointsT2(newPointsT2);
+      localStorage.setItem("pointsT2", newPointsT2.toString());
     }
   };
 
   const handleReset = () => {
     setPointsT1(0);
     setPointsT2(0);
+    localStorage.removeItem("pointsT1");
+    localStorage.removeItem("pointsT2");
   };
 
   const groupPoints = (points) => {
