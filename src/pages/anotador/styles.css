@@ -3,11 +3,8 @@
   justify-content: center;
   min-height: 100svh;
   background: #485563;
-  /* fallback for old browsers */
   background: -webkit-linear-gradient(to bottom, #29323c, #485563);
-  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #29323c, #485563);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .content {
@@ -65,9 +62,13 @@
   height: 40px;
 }
 
+.reset {
+  margin-bottom: 32px;
+}
+
 .casitas {
-  margin-top: 12px;
-  height: 100%;
+  margin-top: 24px;
+  height: 522px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,17 +79,17 @@
 .horizontal {
   position: absolute;
   background-color: grey;
-  top: 50vh;
-  width: 80%;
+  top: 250px;
+  width: 90%;
   height: 1px;
 }
 
 .vertical {
   position: absolute;
   background-color: grey;
-  top: 10px;
+  top: -15px;
   width: 1px;
-  height: 90%;
+  height: 105%;
 }
 
 .left {
@@ -142,4 +143,27 @@
 
 .casita:last-child {
   margin-bottom: 0;
+}
+
+.reset-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  min-height: 150px;
+}
+
+@media (max-width: 600px) {
+  .casitas {
+    margin-top: 64px;
+  }
+
+  .modal-content {
+    width: 70%;
+    min-width: 250px;
+  }
+
+  .reset-modal {
+    width: 100%;
+  }
 }

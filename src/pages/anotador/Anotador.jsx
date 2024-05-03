@@ -1,12 +1,25 @@
 import { useState } from "react";
 import "./styles.css";
 import MatchesIcon from "../../Icons/Matches";
+import Modal from "../../components/modals/Modal";
 
 const Anotador = () => {
   const [pointsT1, setPointsT1] = useState(
-    parseInt(localStorage.getItem("pointsT1")) || 0);
+    parseInt(localStorage.getItem("pointsT1")) || 0
+  );
   const [pointsT2, setPointsT2] = useState(
-    parseInt(localStorage.getItem("pointsT2")) || 0);
+    parseInt(localStorage.getItem("pointsT2")) || 0
+  );
+
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+
+  const handleOpenResetModal = () => {
+    setIsResetModalOpen(true);
+  };
+
+  const handleCloseResetModal = () => {
+    setIsResetModalOpen(false);
+  };
 
   const handleAddT1 = () => {
     if (pointsT1 < 30) {
@@ -45,6 +58,7 @@ const Anotador = () => {
     setPointsT2(0);
     localStorage.removeItem("pointsT1");
     localStorage.removeItem("pointsT2");
+    setIsResetModalOpen(false);
   };
 
   const groupPoints = (points) => {
@@ -91,6 +105,7 @@ const Anotador = () => {
             <div className="casitas">
               {groupPoints(pointsT1)}
               <div className="vertical left" />
+              <div className="horizontal left" />
             </div>
 
             <div className="buttons t1">
@@ -104,7 +119,10 @@ const Anotador = () => {
           </div>
           <div className="boards">
             <h2>Ellos</h2>
-            <div className="casitas">{groupPoints(pointsT2)}</div>
+            <div className="casitas">
+              {groupPoints(pointsT2)}
+              <div className="horizontal right" />
+            </div>
             <div className="buttons t2">
               <button className="rounded-button" onClick={handleAddT2}>
                 + 1
@@ -115,10 +133,25 @@ const Anotador = () => {
             </div>
           </div>
         </div>
-        <button className="rounded-button" onClick={handleReset}>
+
+        <button className="rounded-button reset" onClick={handleOpenResetModal}>
           Resetear
         </button>
       </div>
+
+      <Modal isOpen={isResetModalOpen} onClose={handleCloseResetModal}>
+        <div className="reset-modal">
+          <div className="modal-title">Seguro queres reiniciar?</div>
+          <div className="modal-buttons-container">
+            <button className="modal-button" onClick={handleReset}>
+              Si
+            </button>
+            <button className="modal-button" onClick={handleCloseResetModal}>
+              No
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
